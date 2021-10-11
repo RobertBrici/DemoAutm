@@ -1,0 +1,43 @@
+{
+  "name": "charlie-frontend-automation",
+  "version": "1.0.0",
+  "description": "The charlie-frontend-automation solution develops automation tests for the Category-Subcategory application",
+  "main": "index.js",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "fs-extra": "10.0.0",
+    "path": "^0.12.7"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/step_definitions/**/",
+    "nonGlobalStepDefinitions": false,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "devDependencies": {
+    "cypress": "^8.5.0",
+    "cypress-cucumber-preprocessor": "^4.1.3",
+    "cypress-wait-until": "1.7.1",
+    "cypress-xpath": "1.6.2",
+    "multiple-cucumber-html-reporter": "^1.18.0"
+  },
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run:dev": "npx cypress run --config-file cypress/config/cypress.dev.json --browser=chrome",
+    "cypress:run:prod": "npx cypress run --config-file cypress/config/cypress.prod.json --browser=chrome",
+    "cypress:open:dev": "npx cypress open --config-file cypress/config/cypress.dev.json",
+    "cypress:open:prod": "npx cypress open --config-file cypress/config/cypress.prod.json",
+    "cypress:run:chrome:background": "npx cypress run --browser chrome",
+    "test": "cypress run --env configFile=dev --browser=chrome"
+  },
+  "author": "Brici Robert",
+  "repository": {
+    "type": "git",
+    "url": "https://itstash.garmin.com/projects/ITQA/repos/frontend_charlie/browse"
+  },
+  "license": "ISC"
+}
