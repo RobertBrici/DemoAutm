@@ -18,7 +18,7 @@ export const ShoppingSelectors = {
     },
 
     "header" : {
-        "women" : "#block_top_menu > ul > li.sfHoverForce > a"
+        "women" : "#block_top_menu > ul > li:nth-child(1) > a"
     }
 };
 

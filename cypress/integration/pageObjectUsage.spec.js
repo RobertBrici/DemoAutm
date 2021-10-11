@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import LoginPage from "../../support/pageObject/authenticationPage.js";
-import ShoppingPage from "../../support/pageObject/shoppingPage.js";
+import LoginPage from "C:/Users/BRICIROBERT/Desktop/DemoAutm/cypress/support/pageObject/authenticationPage.js";
+import ShoppingPage from "C:/Users/BRICIROBERT/Desktop/DemoAutm/cypress/support/pageObject/shoppingPage.js";
 
 /**
  * Bring Required environment variables locally
