@@ -1,24 +1,38 @@
 /// <reference types="cypress" />
 
-before(() => {
-    cy.visit('http://automationpractice.com/index.php')
-})
+import LoginPage from "../../support/pageObject/authenticationPage.js";
+import ShoppingPage from "../../support/pageObject/shoppingPage.js";
 
+/**
+ * Bring Required environment variables locally
+ */
+ const env_URL = Cypress.env('URL');
 
-describe('This is a basic test', () => {
-    it('Use the search bar', () => {
-        cy.get('#search_query_top').type('DRESS')
-        cy.get('#searchbox > button').click()
+ 
+ let loginPage = new LoginPage();
+ let shoppingPage = new ShoppingPage();
+
+describe('A Product Should not Be added to Wishlist if not authenticated', () => {
+
+    before(() => {
+        loginPage.visitLoginPage(env_URL)
+    })
+
+    after(() => {
+        loginPage.logTestFinished()
+    })
+
+    it('Go to women section', () => {
+        shoppingPage.goToWomenSection()
     })
   
-    it('verify the products were searched', () => {
-        cy.get('#center_column h1 .lighter').contains('DRESS')
-        cy.get('#center_column .right-block h5 a').each(($productNames) => {
-            expect($productNames.text()).to.contain('Dress')
-        })
+    it('Click the More Button of the First Product in the List', () => {
+        shoppingPage.openMoreSectionFirstProduct()
     })
-  })
 
-  after(() => {
-    cy.log('search test finished')
-  })
+    it('Attempt to Add to Wishlist', () => {
+        shoppingPage.addToWishlist()
+        shoppingPage.verifyProductCantBeAddedToWishlist('You must be logged in to manage your wishlist')
+    })
+
+})

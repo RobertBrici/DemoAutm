@@ -1,4 +1,4 @@
-import LoginPage from "../support/pageObject/LoginPage.js";
+import LoginPage from "../support/pageObject/authenticationPage.js";
 
 let loginPage = new LoginPage()
 

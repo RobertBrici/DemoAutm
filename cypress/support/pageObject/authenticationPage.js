@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 'use strict';
 
-import LoginSelectors from "../../support/pageObject/selectors/loginPageSelectors.js";
+import LoginSelectors from "../../support/pageObject/selectors/authenticationSelectors.js";
 
 export default class LoginPage {
 
@@ -9,6 +9,10 @@ export default class LoginPage {
 
     visitLoginPage(url) {
         cy.visit(url);
+    }
+
+    logTestFinished(){
+        cy.log('test finished')
     }
 
     verifyPresenceOfloginForm() {

@@ -1,11 +1,18 @@
 /// <reference types="cypress" />
 
-before(() => {
-    cy.visit('http://automationpractice.com/index.php')
-})
+
 
 
 describe('This is a basic test', () => {
+
+    before(() => {
+        cy.visit('http://automationpractice.com/index.php')
+    })
+
+    after(() => {
+        cy.log('search test finished')
+    })
+
     it('Use the search bar', () => {
         cy.get('#search_query_top').type('DRESS')
         cy.get('#searchbox > button').click()
@@ -17,8 +24,6 @@ describe('This is a basic test', () => {
             expect($productNames.text()).to.contain('Dress')
         })
     })
-  })
+})
 
-  after(() => {
-    cy.log('search test finished')
-  })
+  
