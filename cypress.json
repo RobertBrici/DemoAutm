@@ -1,1 +1,11 @@
-{}
+{
+    "projectId": "yvwazz",
+    "recordKey": "abc123",
+    "requestTimeout" : 30000,
+    "responseTimeout" : 50000,
+    "pageLoadTimeout": 100000,
+    "defaultCommandTimeout" : 50000,
+    "chromeWebSecurity": false,
+    "waitForAnimations": true
+  }
+  

@@ -1,0 +1,8 @@
+{
+    "env": {
+        "environment": "QA",
+        "URL" : "http://automationpractice.com/index.php",
+        "Email" : "",
+        "password": ""
+    }
+}
