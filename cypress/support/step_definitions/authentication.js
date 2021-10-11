@@ -3,7 +3,7 @@
 import { Then, When, Given  } from "cypress-cucumber-preprocessor/steps";
 import LoginPage from "C:/Users/BRICIROBERT/Desktop/DemoAutm/cypress/support/pageObject/authenticationPage.js";
 
-let loginPage = new AuthenticationPage();
+let loginPage = new LoginPage();
 
 When(/^I submit an empty form$/, () => {
     loginPage.submitEmptyLoginForm()
@@ -17,20 +17,24 @@ When(/^I submit the correct username and a wrong password "([^"]*)"$/, (password
     cy.login(Cypress.env('Email'), password)
 });
 
-When(/^The Login form is visible$/, () => {
+Then(/^The Login form is visible$/, () => {
     loginPage.verifyPresenceOfloginForm()
 });
 
-When(/^I submit the username and password$/, () => {
+When(/^I submit the correct username and password$/, () => {
     cy.login(Cypress.env('Email'), Cypress.env('password'))
 });
 
-Then(/^The user should be authenticated$/, (message) => {
-
+Then(/^The user "([^"]*)" should be authenticated$/, (user) => {
+    loginPage.verifyLoginWasSuccessful(user)
 });
 
 When(/^I Go to the login page$/, () => {
     loginPage.goToLogin()
+});
+
+When(/^I click Logout$/, () => {
+    loginPage.logOut()
 });
 
 Given(/^I open the main page$/, () => {

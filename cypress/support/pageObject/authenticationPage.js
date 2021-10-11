@@ -27,7 +27,6 @@ export default class LoginPage {
         cy.log("Filling the Login Form");
         cy.get(LoginSelectors.loginForm.emailField).clear().type(username);
         cy.get(LoginSelectors.loginForm.passwordField).clear().type(password);
-        cy.get(LoginSelectors.loginForm.loginButton).click();
     }
 
     submitLoginForm(){
@@ -51,11 +50,7 @@ export default class LoginPage {
     }
 
     logOut() {
-        cy.get(LoginSelectors.logut.logOutButton).click({force: true});
+        cy.get(LoginSelectors.logut.logutBtn).click({force: true});
     }
 
-    verifyLogOutWasSuccessful() {
-        
-    }
-    
 }
