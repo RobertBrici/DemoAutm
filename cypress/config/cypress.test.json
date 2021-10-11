@@ -2,7 +2,7 @@
     "env": {
         "environment": "QA",
         "URL" : "http://automationpractice.com/index.php",
-        "Email" : "",
-        "password": ""
+        "Email" : "robert_br96@yahoo.com",
+        "password": "qwerty"
     }
 }
