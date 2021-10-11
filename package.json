@@ -9,7 +9,7 @@
     "path": "^0.12.7"
   },
   "cypress-cucumber-preprocessor": {
-    "step_definitions": "cypress/support/step_definitions/**/",
+    "step_definitions": "cypress/support/step_definitions/",
     "nonGlobalStepDefinitions": false,
     "cucumberJson": {
       "generate": true,

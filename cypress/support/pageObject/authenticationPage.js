@@ -18,22 +18,23 @@ export default class LoginPage {
     verifyPresenceOfloginForm() {
         cy.get(LoginSelectors.loginForm.authForm).should('be.visible');
     }
+    
+    goToLogin(){
+        cy.get(LoginSelectors.loginForm.signInBtn).click();
+    }
 
-    authenticate(username, password) {
+    fillLoginForm(username, password) {
         cy.log("Filling the Login Form");
         cy.get(LoginSelectors.loginForm.emailField).clear().type(username);
         cy.get(LoginSelectors.loginForm.passwordField).clear().type(password);
         cy.get(LoginSelectors.loginForm.loginButton).click();
     }
 
-    noPasswordAuthentication(username){
-        cy.log("Filling the Login Form Without Password");
-        cy.get(LoginSelectors.loginForm.emailField).clear().type(username);
-        cy.get(LoginSelectors.loginForm.passwordField).clear();
+    submitLoginForm(){
         cy.get(LoginSelectors.loginForm.loginButton).click();
     }
 
-    verifyDeniedAuthenticationInvalidUser(error){
+    verifyDeniedAuthentication(error){
         cy.get(LoginSelectors.messages.invalidLoginMessage).contains(error);
     }
 
