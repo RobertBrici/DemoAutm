@@ -1,8 +1,5 @@
 /// <reference types="cypress" />
 
-
-
-
 describe('This is a basic test', () => {
 
     before(() => {
@@ -20,6 +17,7 @@ describe('This is a basic test', () => {
   
     it('verify the products were searched', () => {
         cy.get('#center_column h1 .lighter').contains('DRESS')
+        
         cy.get('#center_column .right-block h5 a').each(($productNames) => {
             expect($productNames.text()).to.contain('Dress')
         })

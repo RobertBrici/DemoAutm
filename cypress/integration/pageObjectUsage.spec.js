@@ -12,7 +12,7 @@ import ShoppingPage from "C:/Users/BRICIROBERT/Desktop/DemoAutm/cypress/support/
  let loginPage = new LoginPage();
  let shoppingPage = new ShoppingPage();
 
-describe('A Product Should not Be added to Wishlist if not authenticated', () => {
+context('A Product Should not Be added to Wishlist if not authenticated', () => {
 
     before(() => {
         loginPage.visitLoginPage(env_URL)
@@ -22,15 +22,15 @@ describe('A Product Should not Be added to Wishlist if not authenticated', () =>
         loginPage.logTestFinished()
     })
 
-    it('Go to women section', () => {
+    specify('Go to women section', () => {
         shoppingPage.goToWomenSection()
     })
   
-    it('Click the More Button of the First Product in the List', () => {
+    specify('Click the More Button of the First Product in the List', () => {
         shoppingPage.openMoreSectionFirstProduct()
     })
 
-    it('Attempt to Add to Wishlist', () => {
+    specify('Attempt to Add to Wishlist', () => {
         shoppingPage.addToWishlist()
         shoppingPage.verifyProductCantBeAddedToWishlist('You must be logged in to manage your wishlist')
     })
